@@ -1,0 +1,11 @@
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <input type="text" formControlName="name" placeholder="name">
+  <input type="text" formControlName="email" placeholder="email">
+  <input type="text" formControlName="country" placeholder="country">
+
+  <input type="text" formControlName="notes" placeholder="notes" *ngIf="!isInfoPage">
+  <button type="submit">Submit</button>
+</form>
+<pre>
+  {{form.controls.email.errors | json}}
+</pre>
