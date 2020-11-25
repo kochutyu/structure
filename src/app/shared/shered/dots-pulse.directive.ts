@@ -8,6 +8,8 @@ export class DotsPulseDirective implements OnInit, OnChanges {
   @Input() input: any;
   @Output() onEvent: EventEmitter<any> = new EventEmitter<any>();
 
+  private dotsStorage: HTMLElement[] = [];
+
   constructor(
     private el: ElementRef,
     private r: Renderer2
@@ -24,9 +26,16 @@ export class DotsPulseDirective implements OnInit, OnChanges {
     // this.r.
   }
 
-  public createDots(): void{
+  public createDots(): void {
     const dot: HTMLElement = this.r.createElement('span');
     this.r.addClass(dot, 'dot');
+
+
+    this.dotsStorage.push(dot);
+
+    setTimeout(() => {
+      this.r.removeChild(this.el.nativeElement, dot);
+    }, 5000);
     this.r.appendChild(this.el.nativeElement, dot);
   }
 
