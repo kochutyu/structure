@@ -1,0 +1,13 @@
+.test{
+  width: 200px;
+  height: 300px;
+  position: relative;
+  .bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background: salmon;
+  }
+}

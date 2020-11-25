@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IProduct} from './interfaces/product.interface';
+import {interval} from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -24,6 +25,9 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    interval(1000).subscribe(res => {
+      this.counter = res;
+    });
   }
 
   public toParent(): void {
